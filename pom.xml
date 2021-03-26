@@ -16,6 +16,7 @@
     <quarkus.platform.artifact-id>quarkus-universe-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
     <quarkus.platform.version>1.12.2.Final</quarkus.platform.version>
+    <quarkus.package.type>uber-jar</quarkus.package.type>
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
   </properties>
   <dependencyManagement>
@@ -83,6 +84,22 @@
     </plugins>
   </build>
   <profiles>
+    <profile>
+      <id>ci</id>
+      <properties>
+        <jkube.generator.name>quay.io/manusa/jkube-gh-actions-pipeline:latest</jkube.generator.name>
+        <jkube.build.strategy>jib</jkube.build.strategy>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.eclipse.jkube</groupId>
+            <artifactId>openshift-maven-plugin</artifactId>
+            <version>1.1.1</version>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
     <profile>
       <id>native</id>
       <activation>
