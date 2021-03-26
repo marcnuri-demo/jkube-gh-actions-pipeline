@@ -26,7 +26,7 @@ jobs:
       - name: Authenticate and set context
         uses: redhat-actions/oc-login@v1
         with:
-          openshift_server_url: ${{ secrts.SANDBOX_SERVER }}
+          openshift_server_url: ${{ secrets.SANDBOX_SERVER }}
           openshift_token: ${{ secrets.SANDBOX_TOKEN }}
       - name: Deploy to Dev Sandbox
         run: |
