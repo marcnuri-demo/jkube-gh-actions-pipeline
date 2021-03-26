@@ -91,6 +91,7 @@
         <jkube.build.strategy>jib</jkube.build.strategy>
         <jkube.enricher.jkube-controller.pullPolicy>Always</jkube.enricher.jkube-controller.pullPolicy>
         <jkube.build.switchToDeployment>true</jkube.build.switchToDeployment>
+        <jkube.rolling>true</jkube.rolling>
       </properties>
       <build>
         <plugins>
