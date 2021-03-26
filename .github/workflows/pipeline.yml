@@ -30,4 +30,4 @@ jobs:
           openshift_token: ${{ secrets.SANDBOX_TOKEN }}
       - name: Deploy to Dev Sandbox
         run: |
-          ./mvnw -B oc:resource oc:apply
+          ./mvnw -B -Pci oc:resource oc:apply
