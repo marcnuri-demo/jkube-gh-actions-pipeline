@@ -135,6 +135,7 @@
       </build>
       <properties>
         <quarkus.package.type>native</quarkus.package.type>
+        <jkube.generator.quarkus.nativeImage>true</jkube.generator.quarkus.nativeImage>
       </properties>
     </profile>
   </profiles>

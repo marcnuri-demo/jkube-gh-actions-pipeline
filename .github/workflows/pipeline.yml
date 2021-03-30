@@ -17,10 +17,10 @@ jobs:
         with:
           java-version: '11'
       - name: Build
-        run: ./mvnw -B verify
+        run: ./mvnw -B -Pnative verify
       - name: Push Image
         run: |
-          ./mvnw -B -Pci oc:build oc:push                             \
+          ./mvnw -B -Pci,native oc:build oc:push                             \
           -Djkube.docker.push.username=${{ secrets.QUAY_USERNAME }}   \
           -Djkube.docker.push.password=${{ secrets.QUAY_PASSWORD }}
       - name: Authenticate and set context
@@ -31,4 +31,4 @@ jobs:
           namespace: mnurisan-dev
       - name: Deploy to Dev Sandbox
         run: |
-          ./mvnw -B -Pci oc:resource oc:apply
+          ./mvnw -B -Pci,native oc:resource oc:apply
