@@ -20,7 +20,7 @@ jobs:
         run: mvn -B verify
       - name: Push Image
         run: |
-          mvn -B -Pci oc:build oc:push                                \
+          mvn -B -Pci,native oc:build oc:push                                \
           -Djkube.docker.push.username=${{ secrets.QUAY_USERNAME }}   \
           -Djkube.docker.push.password=${{ secrets.QUAY_PASSWORD }}
       - name: Authenticate and set context
@@ -31,4 +31,4 @@ jobs:
           namespace: mnurisan-dev
       - name: Deploy to Dev Sandbox
         run: |
-          mvn -B -Pci oc:resource oc:apply
+          mvn -B -Pci,native oc:resource oc:apply
