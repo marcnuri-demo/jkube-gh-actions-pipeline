@@ -17,7 +17,7 @@ jobs:
         with:
           java-version: '11'
       - name: Build
-        run: mvn -B verify
+        run: mvn -B -Pnative verify
       - name: Push Image
         run: |
           mvn -B -Pci,native oc:build oc:push                                \
