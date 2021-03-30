@@ -89,6 +89,7 @@
       <properties>
         <jkube.generator.name>quay.io/manusa/jkube-gh-actions-pipeline:latest</jkube.generator.name>
         <jkube.build.strategy>jib</jkube.build.strategy>
+        <jkube.build.switchToDeployment>true</jkube.build.switchToDeployment>
         <jkube.recreate>true</jkube.recreate>
         <jkube.enricher.jkube-controller.pullPolicy>Always</jkube.enricher.jkube-controller.pullPolicy>
       </properties>
