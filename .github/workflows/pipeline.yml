@@ -18,3 +18,8 @@ jobs:
           java-version: '11'
       - name: Build
         run: ./mvnw -B verify
+      - name: Push Image
+        run: |
+          ./mvnw -B -Pci oc:build oc:push                             \
+          -Djkube.docker.push.username=${{ secrets.QUAY_USERNAME }}   \
+          -Djkube.docker.push.password=${{ secrets.QUAY_PASSWORD }}
