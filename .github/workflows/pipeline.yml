@@ -23,3 +23,12 @@ jobs:
           ./mvnw -B -Pci oc:build oc:push                             \
           -Djkube.docker.push.username=${{ secrets.QUAY_USERNAME }}   \
           -Djkube.docker.push.password=${{ secrets.QUAY_PASSWORD }}
+      - name: Authenticate and set context
+        uses: redhat-actions/oc-login@v1
+        with:
+          openshift_server_url: ${{ secrets.SANDBOX_SERVER }}
+          openshift_token: ${{ secrets.SANDBOX_TOKEN }}
+          namespace: mnurisan-dev
+      - name: Deploy to Dev Sandbox
+        run: |
+          ./mvnw -B -Pci oc:resource oc:apply
